@@ -1,19 +1,18 @@
 <script setup lang="ts">
-const updateTime = (): string => {
-  let date: Date = new Date();
-  let currentTime =
-    date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
-  let showTime = currentTime.toString();
-  return showTime;
-};
+import { ref } from 'vue';
 
-setInterval(updateTime, 1000);
-let showTime = updateTime();
-console.log(showTime);
+const time = ref('');
+
+setInterval(() => {
+  const date: Date = new Date();
+  const currentTime =
+    date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+  time.value = currentTime.toString();
+}, 1000);
 </script>
 
 <template>
   <span id="date" class="date">
-    {{ showTime }}
+    {{ time }}
   </span>
 </template>
