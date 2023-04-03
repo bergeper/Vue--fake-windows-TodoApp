@@ -14,6 +14,6 @@ console.log(showTime);
 
 <template>
   <span id="date" class="date">
-    {{ (showTime = updateTime()) }}
+    {{ showTime }}
   </span>
 </template>

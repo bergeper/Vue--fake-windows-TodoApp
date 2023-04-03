@@ -1,14 +1,20 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import ShowClock from './ShowClock.vue';
-let show = false;
 
-const showMenu = () => {
-  show = true;
+const isActive = ref(false);
+
+const showMenus = () => {
+  if (isActive.value) {
+    isActive.value = false;
+  } else {
+    isActive.value = true;
+  }
 };
 </script>
 
 <template>
-  <div v-show="show" id="menu" class="menu">
+  <div v-if="isActive" class="menu">
     <button class="menuBtn">
       <img src="../../assets/win-98-notepad.png" class="menuBtn__logo" />Todo
     </button>
@@ -23,7 +29,7 @@ const showMenu = () => {
       Max Icons
     </button>
   </div>
-  <button @click.prevent="showMenu" class="program__btn">
+  <button @click="showMenus" class="program__btn">
     <img src="../../assets/win-98-logo.png" class="program__btn--logo" />
     Start
   </button>
