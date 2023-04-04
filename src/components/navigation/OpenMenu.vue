@@ -14,7 +14,7 @@ const showMenu = () => {
 </script>
 
 <template>
-  <div v-if="isActive" class="menu">
+  <div v-show="isActive" class="menu">
     <button class="menuBtn">
       <img src="../../assets/win-98-notepad.png" class="menuBtn__logo" />Todo
     </button>
@@ -29,11 +29,13 @@ const showMenu = () => {
       Max Icons
     </button>
   </div>
-  <button @click="showMenu" class="program__btn">
-    <img src="../../assets/win-98-logo.png" class="program__btn--logo" />
-    Start
-  </button>
-  <ShowClock />
+  <nav class="nav">
+    <button @click="showMenu" class="program__btn">
+      <img src="../../assets/win-98-logo.png" class="program__btn--logo" />
+      Start
+    </button>
+    <ShowClock></ShowClock>
+  </nav>
 </template>
 
 <style scoped>
@@ -57,8 +59,21 @@ const showMenu = () => {
   width: 25px;
 }
 
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  background-color: #c3c3c3;
+  border-top: 4px solid white;
+  border-left: 4px solid white;
+  border-right: 3px solid black;
+  border-bottom: 3px solid black;
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+}
+
 .menuBtn {
-  width: 98%;
   display: block;
   left: 0;
   background-color: rgba(255, 255, 255, 0);
@@ -74,5 +89,13 @@ const showMenu = () => {
 }
 .menuBtn__logo {
   width: 35px;
+}
+.nav {
+  border-top: 4px solid rgba(255, 255, 255, 0.904);
+  background-color: #c3c3c3;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
 </style>

@@ -2,13 +2,12 @@ html,
 body {
   margin: 0;
   box-sizing: border-box;
-  font-size: 1.2em;
   font-family: sans-serif;
 }
 
 #app {
   min-height: 100vh;
-  background-image: url(./assets/10862641.jpg);
+  background-image: url(./assets/win98bkg1920x1080.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
