@@ -4,7 +4,7 @@ import ShowClock from './ShowClock.vue';
 
 const isActive = ref(false);
 
-const showMenus = () => {
+const showMenu = () => {
   if (isActive.value) {
     isActive.value = false;
   } else {
@@ -29,9 +29,50 @@ const showMenus = () => {
       Max Icons
     </button>
   </div>
-  <button @click="showMenus" class="program__btn">
+  <button @click="showMenu" class="program__btn">
     <img src="../../assets/win-98-logo.png" class="program__btn--logo" />
     Start
   </button>
   <ShowClock />
 </template>
+
+<style scoped>
+.program__btn {
+  background-color: #c3c3c3;
+  margin: 0 0 0 5px;
+  font-family: sans-serif;
+  font-weight: bolder;
+  border-top: 4px solid white;
+  border-left: 4px solid white;
+  border-right: 3px solid black;
+  border-bottom: 3px solid black;
+}
+.program__btn:active {
+  border-top: 4px solid black;
+  border-left: 4px solid black;
+  border-right: 3px solid white;
+  border-bottom: 3px solid white;
+}
+.program__btn--logo {
+  width: 25px;
+}
+
+.menuBtn {
+  width: 98%;
+  display: block;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 5px;
+  border: none;
+}
+.menuBtn:hover {
+  background-color: rgb(16, 0, 163);
+  color: white;
+}
+.menuBtn__logo {
+  width: 35px;
+}
+</style>

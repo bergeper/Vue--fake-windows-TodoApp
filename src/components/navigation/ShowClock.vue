@@ -16,3 +16,18 @@ setInterval(() => {
     {{ time }}
   </span>
 </template>
+
+<style scoped>
+.date {
+  position: fixed;
+  right: 0;
+  margin: 0 10px 0 0;
+  padding: 2px;
+  border-left: solid black 2px;
+  border-top: solid black 2px;
+  border-right: solid white 2px;
+  border-bottom: solid white 2px;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+</style>
