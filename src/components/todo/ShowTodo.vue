@@ -9,8 +9,12 @@ const emit = defineEmits(['toggleTodoDone', 'removeTodo']);
 </script>
 
 <template>
-  <div @click="() => emit('toggleTodoDone')" class="todosContainer">
-    <div class="todosContainer" :class="todo.done ? 'done' : ''">
+  <div class="todosContainer">
+    <div
+      @click="() => emit('toggleTodoDone')"
+      class="todosContainer"
+      :class="todo.done ? 'done' : ''"
+    >
       <input class="checkbox" type="checkbox" :checked="todo.done" />
       <p class="todos">{{ todo.todo }}</p>
     </div>

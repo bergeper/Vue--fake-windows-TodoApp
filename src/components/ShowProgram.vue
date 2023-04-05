@@ -2,16 +2,20 @@
 import { ref } from 'vue';
 import TodoList from './todo/TodoList.vue';
 import OpenMenu from './navigation/OpenMenu.vue';
+import OmdbSearch from './omdb/OmdbSearch.vue';
+import ShowMaxIcons from './maxicons/ShowMaxIcons.vue';
 
-const isWindowActive = ref(true);
-const isProgramActive = ref(false);
+const isWindowActive = ref(false);
+const isTodoActive = ref(false);
+const isOmdbActive = ref(false);
+const isMaxIconsActive = ref(false);
 
-const openProgram = () => {
-  if (isProgramActive.value) {
-    isProgramActive.value = false;
+const openTodoApp = (isActive: boolean) => {
+  if (isActive && isTodoActive.value) {
+    isTodoActive.value = false;
     isWindowActive.value = false;
   } else {
-    isProgramActive.value = true;
+    isTodoActive.value = true;
     isWindowActive.value = true;
   }
 };
@@ -19,9 +23,15 @@ const openProgram = () => {
 
 <template>
   <div v-show="isWindowActive" class="window">
-    <TodoList v-if="isProgramActive"></TodoList>
+    <TodoList v-if="isTodoActive"></TodoList>
+    <OmdbSearch v-if="isOmdbActive"></OmdbSearch>
+    <ShowMaxIcons v-if="isMaxIconsActive"></ShowMaxIcons>
   </div>
-  <OpenMenu @todo-app="openProgram"></OpenMenu>
+  <OpenMenu
+    @omdb="openTodoApp(isOmdbActive)"
+    @max-icons="openTodoApp(isMaxIconsActive)"
+    @todo-app="openTodoApp(isTodoActive)"
+  ></OpenMenu>
 </template>
 
 <style scoped>

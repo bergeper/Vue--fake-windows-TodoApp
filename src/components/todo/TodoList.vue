@@ -29,6 +29,26 @@ function todosToLs(todos: Todo[]) {
 <template>
   <div class="program__container">
     <h4 class="program__container--title">Windows Todolist Program</h4>
+    <div class="windowBtnContainer">
+      <button class="windowBtn">
+        <img
+          class="windowBtnImage"
+          src="../../assets/windowbuttons/win-98-minimera.png"
+        />
+      </button>
+      <button class="windowBtn">
+        <img
+          class="windowBtnImage"
+          src="../../assets/windowbuttons/win-98-window.png"
+        />
+      </button>
+      <button class="windowBtn">
+        <img
+          class="windowBtnImage"
+          src="../../assets/windowbuttons/win-98-kryss.png"
+        />
+      </button>
+    </div>
   </div>
   <AddTodo @add-todo="addTodo"></AddTodo>
   <ShowTodo
@@ -44,6 +64,7 @@ function todosToLs(todos: Todo[]) {
 .program__container {
   margin: -10px -10px 10px -10px;
   background-color: rgb(16, 0, 163);
+  display: flex;
 }
 
 .program__container--title {
@@ -55,5 +76,22 @@ function todosToLs(todos: Todo[]) {
 .done {
   color: grey;
   text-shadow: white 1px 1px, white 0px 0px, white 1px 1px;
+}
+
+.windowBtnContainer {
+  display: flex;
+}
+
+.windowBtn {
+  scale: 0.8;
+  background-color: #c3c3c3;
+  border-top: 4px solid white;
+  border-left: 4px solid white;
+  border-right: 3px solid black;
+  border-bottom: 3px solid black;
+}
+
+.windowBtnImage {
+  width: 13px;
 }
 </style>

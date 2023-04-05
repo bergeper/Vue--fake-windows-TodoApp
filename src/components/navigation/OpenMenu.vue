@@ -12,7 +12,7 @@ const showMenu = () => {
   }
 };
 
-const emit = defineEmits(['todoApp']);
+const emit = defineEmits(['todoApp', 'omdb', 'maxIcons']);
 </script>
 
 <template>
@@ -21,12 +21,12 @@ const emit = defineEmits(['todoApp']);
       <img src="../../assets/win-98-notepad.png" class="menuBtn__logo" />Todo
     </button>
 
-    <button class="menuBtn" id="omdbBtn">
+    <button @click="emit('omdb')" class="menuBtn" id="omdbBtn">
       <img src="../../assets/win-98-media-player.png" class="menuBtn__logo" />
       Search For Movies
     </button>
 
-    <button class="menuBtn">
+    <button @click="emit('maxIcons')" class="menuBtn">
       <img src="../../assets/folder-win-98.png" class="menuBtn__logo" />
       Max Icons
     </button>
