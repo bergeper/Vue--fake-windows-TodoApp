@@ -1,17 +1,27 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import TodoList from './todo/TodoList.vue';
+import OpenMenu from './navigation/OpenMenu.vue';
 
+const isWindowActive = ref(true);
 const isProgramActive = ref(false);
-const isWindowActive = ref(false);
+
+const openProgram = () => {
+  if (isProgramActive.value) {
+    isProgramActive.value = false;
+    isWindowActive.value = false;
+  } else {
+    isProgramActive.value = true;
+    isWindowActive.value = true;
+  }
+};
 </script>
 
 <template>
   <div v-show="isWindowActive" class="window">
-    <div v-show="isProgramActive">
-      <TodoList></TodoList>
-    </div>
+    <TodoList v-if="isProgramActive"></TodoList>
   </div>
+  <OpenMenu @todo-app="openProgram"></OpenMenu>
 </template>
 
 <style scoped>

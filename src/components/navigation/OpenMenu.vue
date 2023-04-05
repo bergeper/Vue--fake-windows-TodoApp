@@ -11,11 +11,13 @@ const showMenu = () => {
     isActive.value = true;
   }
 };
+
+const emit = defineEmits(['todoApp']);
 </script>
 
 <template>
   <div v-show="isActive" class="menu">
-    <button class="menuBtn">
+    <button @click="emit('todoApp')" class="menuBtn">
       <img src="../../assets/win-98-notepad.png" class="menuBtn__logo" />Todo
     </button>
 
@@ -65,11 +67,9 @@ const showMenu = () => {
   width: 35%;
   background-color: #c3c3c3;
   border-top: 4px solid white;
-  border-left: 4px solid white;
   border-right: 3px solid black;
-  border-bottom: 3px solid black;
   position: fixed;
-  bottom: 40px;
+  bottom: 38px;
   left: 0;
 }
 
