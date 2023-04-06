@@ -3,11 +3,18 @@ import { ref } from 'vue';
 
 const todo = ref('');
 const emit = defineEmits(['addTodo']);
+
+const clearInput = () => {};
 </script>
 
 <template>
-  <form class="form" @submit.prevent="emit('addTodo', todo)">
-    <input class="form__input" v-model="todo" type="text" />
+  <form class="form" @submit.prevent="emit('addTodo', todo), clearInput">
+    <input
+      class="form__input"
+      v-model="todo"
+      placeholder="Whatya need to be doin"
+      type="text"
+    />
     <button class="form__btn">Save</button>
   </form>
 </template>
